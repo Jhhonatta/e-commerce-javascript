@@ -5,7 +5,6 @@ const main = document.createElement("main");
 const ul_Products = document.createElement("ul");
 
 body.appendChild(main);
-main.appendChild(ul_Products);
 
 const generateList = (dice) => {
   dice.map((elem) => {
@@ -35,3 +34,12 @@ const generateList = (dice) => {
 };
 
 generateList(data);
+
+const cartDiv = document.createElement("div");
+
+const createCart = () => {
+  const titleCart = document.createElement("p");
+  titleCart.innerText = "Carrinho de compras";
+};
+
+main.append(ul_Products, cartDiv);
