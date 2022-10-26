@@ -1,6 +1,6 @@
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 
   padding: 15px 25px;
   height: 50px;
@@ -83,6 +83,41 @@ ul {
 .spaceProducts {
   height: 350px;
   background-color: rgb(var(--color-egyptian-gray), 1);
+
+  overflow: auto;
+}
+
+.containerCartProduct {
+  padding: 5px;
+  display: flex;
+}
+
+.imgCart {
+  width: 100px;
+  height: 100px;
+
+  margin-right: 5px;
+
+  border-radius: 17px;
+}
+
+h1 {
+  font-size: 12px;
+}
+
+.containerRigth {
+  display: flex;
+}
+
+.containerPriceAndText {
+  width: 112.95px;
+}
+
+.buttonRemove {
+  height: max-content;
+  margin-top: 70px;
+
+  width: 80px;
 }
 
 @media screen and (max-width: 400px) {
@@ -148,9 +183,9 @@ ul {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
+    /* width: 100%; */
 
-    margin-right: 25px;
+    margin: auto;
   }
 }
 

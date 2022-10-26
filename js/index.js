@@ -41,6 +41,7 @@ cartDiv.classList.add("cartFull");
 
 let sum = 0;
 
+const div_spaceProducts = document.createElement("div");
 const createCart = () => {
   const div_titleCart = document.createElement("div");
   div_titleCart.classList.add("titleCart");
@@ -50,7 +51,6 @@ const createCart = () => {
   titleCart.innerText = "Carrinho de compras";
   div_titleCart.appendChild(titleCart);
 
-  const div_spaceProducts = document.createElement("div");
   div_spaceProducts.classList.add("spaceProducts");
 
   const div_totalPrice = document.createElement("div");
@@ -70,8 +70,9 @@ createCart();
 
 ul_Products.addEventListener("click", function (e) {
   if (e.target.innerText == "Adicionar ao carrinho") {
-    addToCart(e.path[1].id, data);
+    addToArray(e.path[1].id, data);
     addPrice();
+    addCart();
   }
 });
 
@@ -79,7 +80,7 @@ main.append(ul_Products, cartDiv);
 
 let arrayCart = [];
 
-const addToCart = (id, data) => {
+const addToArray = (id, data) => {
   data.forEach((elem) => {
     if (elem.id == id) {
       arrayCart.push(elem);
@@ -95,3 +96,33 @@ const addPrice = () => {
   let newPrice = document.querySelector(".priceTotal");
   newPrice.innerHTML = `Valor total: ${sum}`;
 };
+
+function addCart() {
+  div_spaceProducts.innerHTML = "";
+  for (let i = 0; i < arrayCart.length; i++) {
+    const nameProduto = `<div class="containerCartProduct">
+    <figure>
+    <img class="imgCart" src=${arrayCart[i].img} alt=${arrayCart[i].name}>
+     </figure>
+     <div class = "containerRigth">
+     <div class = "containerPriceAndText">
+     <h1>${arrayCart[i].name}</h1>
+     <p>R$ ${arrayCart[i].value},00</p>
+     </div>
+     <button data-id = ${i} class = 'buttonRemove'>Remover produto</button>
+     
+     </div>
+     </div>`;
+    div_spaceProducts.innerHTML += nameProduto;
+  }
+}
+
+div_spaceProducts.addEventListener("click", function (e) {
+  const elementoClicado = e.target;
+  if (elementoClicado.tagName == "BUTTON") {
+    const posicaoElemnt = elementoClicado.dataset.id;
+    arrayCart.splice(posicaoElemnt, 1);
+    addCart();
+    addPrice();
+  }
+});
