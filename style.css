@@ -32,16 +32,6 @@ nav {
   width: auto;
 }
 
-.buttonNav {
-  height: max-content;
-  background-color: transparent;
-}
-
-.buttonNav:hover {
-  background-color: rgb(var(--color-pink), 1);
-  color: rgb(var(--color-white), 1);
-}
-
 main {
   display: flex;
 }
@@ -62,7 +52,7 @@ ul {
 
 .cartFull {
   width: 320px;
-  margin-top: 25px;
+  margin-top: 20px;
   padding: 0 5px;
 }
 
@@ -82,9 +72,24 @@ ul {
 
 .spaceProducts {
   height: 350px;
+  width: 310px;
+
   background-color: rgb(var(--color-egyptian-gray), 1);
 
   overflow: auto;
+  overflow-x: hidden;
+}
+
+.spaceProducts::-webkit-scrollbar {
+  width: 10px;
+}
+
+.spaceProducts::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.spaceProducts::-webkit-scrollbar-thumb {
+  background: grey;
 }
 
 .containerCartProduct {
@@ -118,6 +123,12 @@ h1 {
   margin-top: 70px;
 
   width: 80px;
+}
+
+.buttonRemove:hover {
+  background-color: rgb(var(--color-black), 1);
+
+  color: rgb(var(--color-white), 1);
 }
 
 @media screen and (max-width: 400px) {
@@ -179,7 +190,6 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* width: 100%; */
 
     margin: auto;
   }

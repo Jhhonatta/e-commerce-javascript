@@ -94,7 +94,7 @@ const addPrice = () => {
     0
   );
   let newPrice = document.querySelector(".priceTotal");
-  newPrice.innerHTML = `Valor total: ${sum}`;
+  newPrice.innerHTML = `Valor total: R$ ${sum},00`;
 };
 
 function addCart() {
